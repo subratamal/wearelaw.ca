@@ -6,9 +6,12 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  background: url('./../images/we-are-law-768x.jpg') no-repeat center;
+  background-image: url("./../images/we-are-law-2000x.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
-  background-repeat: none;
+  background-color: #999;
   font-family: "Lato", sans-serif;
   font-weight: 400;
 }
@@ -24,7 +27,7 @@ body {
   font-weight: 100;
   background-color: #000;
   color: #fff;
-  background: url('./../images/logo-175x217.png') no-repeat center;
+  background: url("./../images/logo-175x217.png") no-repeat center;
   background-size: contain;
   width: 175px;
   height: 217px;
@@ -118,14 +121,14 @@ form {
   font-size: 18px;
 }
 
-@primary-nav-font-size: 28px;
+@primary-nav-font-size: 26px;
 .navbar-custom {
-	border: 0px;
-	background-color: transparent;
+  border: 0px;
+  background-color: transparent;
 
-	.navbar-header {
-		background-color: transparent;
-	}
+  .navbar-header {
+    background-color: transparent;
+  }
 
   li > a {
     color: white;
@@ -133,7 +136,7 @@ form {
   }
 
   .navbar-nav {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 
   .navbar-toggle {
@@ -149,7 +152,7 @@ form {
   }
 
   .navbar-collapse.collapse.in {
-		background-color: white;
+    background-color: white;
 
     .navbar-nav {
       margin-top: 0px;
