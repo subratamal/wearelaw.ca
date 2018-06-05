@@ -1,39 +1,65 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-@media (max-width: @screen-xs-max) {}
+@media (max-width: @screen-xs-max) {
+}
 
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-	.logo {
-		width: 240px;
-		height: 320px;
-	}
+  body {
+    background: url("./../images/we-are-law-2400x.jpg") no-repeat center;
+  }
+
+  .logo {
+    background: url("./../images/logo-210x260.png") no-repeat center;
+    width: 210px;
+    height: 260px;
+  }
+
+  .container-fluid {
+    margin: 0;
+    padding-left: 170px;
+    padding-right: 80px;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-	body {
-		background: red;
-	}
+  body {
+    background: url("./../images/we-are-law-2400x.jpg") no-repeat center;
+  }
 
-	.logo {
-		width: 240px;
-		height: 320px;
-	}
+  .logo {
+    background: url("./../images/logo-210x260.png") no-repeat center;
+    width: 210px;
+    height: 260px;
+  }
+
+  .container-fluid {
+    margin: 0;
+    padding-left: 170px;
+    padding-right: 80px;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 
 @media (min-width: @screen-lg-min) {
-	body {
-		background: black;
-	}
+  body {
+    background: url("./../images/we-are-law-2400x.jpg") no-repeat center;
+  }
 
-	.logo {
-		width: 240px;
-		height: 320px;
-	}
+  .logo {
+    background: url("./../images/logo-210x260.png") no-repeat center;
+    width: 210px;
+    height: 260px;
+  }
+
+  .container-fluid {
+    margin: 0;
+    padding-left: 170px;
+    padding-right: 80px;
+  }
 }
