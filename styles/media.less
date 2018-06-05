@@ -2,42 +2,31 @@
 /* No media query since this is the default in Bootstrap */
 
 @media (max-width: @screen-xs-max) {
+  html {
+    font-size: 10px;
+  }
+
+  .form-wrap {
+    form {
+      .panel-body {
+        .item {
+          .btn-lg {
+            font-size: 1.5rem;
+            padding: 15px 45px;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-  body {
-    background-image: url("./../images/we-are-law-2000x.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: #999;
+  html {
+    font-size: 12px;
   }
 
-  .logo {
-    background: url("./../images/logo-175x217.png") no-repeat center;
-    width: 175px;
-    height: 217px;
-  }
-
-  .container-fluid {
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .navbar-custom {
-    li > a {
-      font-size: 18px;
-    }
-  }
-}
-
-/* Medium devices (desktops, 992px and up) */
-
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
   body {
     background-image: url("./../images/we-are-law-2000x.jpg");
     background-position: center center;
@@ -61,7 +50,42 @@
 
   .navbar-custom {
     li > a {
-      font-size: 24px;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    background-image: url("./../images/we-are-law-2000x.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+  }
+
+  .logo {
+    background: url("./../images/logo-175x217.png") no-repeat center;
+    width: 175px;
+    height: 217px;
+  }
+
+  .container-fluid {
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .navbar-custom {
+    li > a {
+      font-size: 1.5rem;
     }
   }
 }
@@ -69,6 +93,10 @@
 /* Large devices (large desktops, 1200px and up) */
 
 @media (min-width: @screen-lg-min) {
+  html {
+    font-size: 16px;
+  }
+
   body {
     background-image: url("./../images/we-are-law-2000x.jpg");
     background-position: center center;
