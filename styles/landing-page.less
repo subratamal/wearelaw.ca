@@ -159,3 +159,46 @@ form {
     }
   }
 }
+
+/* stroke */
+/* NAVIGATION */
+
+.nav li a:focus,
+.nav li a:hover {
+  background-color: transparent;
+}
+
+nav.stroke ul li {
+  display: inline-block;
+
+	a {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0%;
+      content: ".";
+      color: transparent;
+      background: #aaa;
+      height: 1px;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+	}
+
+  a,
+  a:after,
+  a:before {
+    transition: all 0.5s;
+  }
+
+  a:hover {
+    color: darken(#fff, 25%);
+  }
+}
