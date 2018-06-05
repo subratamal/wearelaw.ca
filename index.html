@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Styles loading starts -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- Styles loading ends -->
+
+	<title>We Are Law</title>
+</head>
+
+<body>
+	<div class="logo-wrap">
+		<div class="logo">
+
+		</div>
+	</div>
+
+	<div class="form-wrap col-xs-12 col-md-6">
+		<div class="form-head">
+			<div class="big-text">Closing Cost Calculator</div>
+			<div class="small-text">At F|K, there are no hidden fees. Find out instantly how little it is going to cost you to have us by your side. Go on...we
+				dare you!</div>
+		</div>
+
+		<form>
+			<div class="panel-body">
+				<div id="carousel-div" class="carousel slide" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner" role="listbox">
+						<!--- Part 1-->
+						<div class="item active">
+							<div class="col-xs-12">
+								<div class="big-label">Where is the property located?</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="propLoc" id="propLoc1" value="option1" checked>
+									<label class="form-check-label" for="propLoc1">
+										In Toronto
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="propLoc" id="propLoc2" value="option2">
+									<label class="form-check-label" for="propLoc2">
+										Outside Toronto
+									</label>
+								</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="1" class="btn btn-primary btn-lg pull-right" value="Get Estimate">
+							</div>
+						</div>
+						<!--- Part 2 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Select your type of transaction</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="tran" id="tran1" value="option1" checked>
+									<label class="form-check-label" for="tran1">
+										Purchase
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="tran" id="tran2" value="option2">
+									<label class="form-check-label" for="tran2">
+										Sale
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="tran" id="tran3" value="option3">
+									<label class="form-check-label" for="tran3">
+										Mortage Refinance
+									</label>
+								</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="0" class="btn btn-primary btn-lg pull-left" value="Back"
+								/>
+								<input type="button" data-target="#carousel-div" data-slide-to="2" class="btn btn-primary btn-lg pull-right" value="Next"
+								/>
+							</div>
+						</div>
+						<!-- Part 3 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Enter the price of your property</div>
+								<div class="form-group">
+									<label for="price">Price of Property</label>
+									<input type="text" class="form-control" id="price" placeholder="$20000">
+								</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="1" class="btn btn-primary btn-lg pull-left" value="Back"
+								/>
+								<input type="button" data-target="#carousel-div" data-slide-to="3" class="btn btn-primary btn-lg pull-right" value="Next"
+								/>
+							</div>
+						</div>
+						<!-- Part 4 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Choose what best describe this transaction</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="besttran" id="besttran1" value="option1" checked>
+									<label class="form-check-label" for="besttran1">
+										First time buyer
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="besttran" id="besttran2" value="option2">
+									<label class="form-check-label" for="besttran2">
+										My Co-Purchaser is a First Time Home Buyer
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="besttran" id="besttran3" value="option3">
+									<label class="form-check-label" for="besttran3">
+										My Co-Purchaser previously owned a home (anywhere)
+									</label>
+								</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="2" class="btn btn-primary btn-lg pull-left" value="Back"
+								/>
+								<input type="button" data-target="#carousel-div" data-slide-to="4" class="btn btn-primary btn-lg pull-right" value="Next"
+								/>
+							</div>
+						</div>
+						<!-- Part 5 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Legal and Land Transfer Costs</div>
+								<div class="l-big-label">
+									Legal Fees (All Inclusive) $1,865.00 + 13% HST = $2,107.00</div>
+								<div class="l-big-label">
+									Your Toronto Land Transfer Tax will be $810 (*incl Admin Fee)</div>
+
+								<div class="l-label">
+									*Effective April 1, 2016 for more info please see the City of Toronto's website
+								</div>
+								<div class="l-big-label">
+									Your Ontario Land Transfer Tax will be $725</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="3" class="btn btn-primary btn-lg pull-left" value="Back"
+								/>
+								<input type="button" data-target="#carousel-div" data-slide-to="5" class="btn btn-primary btn-lg pull-right" value="Next"
+								/>
+							</div>
+						</div>
+						<!-- Part 6 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Final Closing Cost</div>
+								<div class="l-big-label">Get the total closing costs sent to your email:</div>
+								<div class="form-group">
+									<label for="name">First Name</label>
+									<input type="text" class="form-control" id="name" placeholder="Adam">
+								</div>
+								<div class="form-group">
+									<label for="price">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="abc@gmail.com">
+								</div>
+								<input type="button" data-target="#carousel-div" data-slide-to="0" class="btn btn-primary btn-lg pull-left" value="Restart"
+								/>
+								<input type="button" data-target="#carousel-div" data-slide-to="6" class="btn btn-primary btn-lg pull-right" value="Finish"
+								/>
+							</div>
+						</div>
+						<!-- part 7 -->
+						<div class="item">
+							<div class="col-xs-12">
+								<div class="big-label">Thank you!</div>
+								<div class="l-big-label">You will receive an email shortly containing the total.</div>
+								<a data-target="#carousel-div" data-slide-to="0" class="btn btn-primary btn-lg pull-right">Start Again</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- Script loading starts -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Script loading ends -->
+</body>
+
+</html>
