@@ -24,8 +24,8 @@
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
   html {
-		// font-size: 12px;
-		font-size: calc(12px + (14 - 12) * ((100vw - 768px) / (992 - 768)));
+    // font-size: 12px;
+    font-size: calc(12px + (14 - 12) * ((100vw - 768px) / (992 - 768)));
   }
 
   body {
@@ -44,10 +44,13 @@
   }
 
   .container-fluid {
-		height: 60vh;
     margin: 0;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .content-top-buffer {
+    margin-top: 250px;
   }
 
   .navbar-custom {
@@ -61,8 +64,8 @@
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
   html {
-		// font-size: 14px;
-		font-size: calc(14px + (16 - 14) * ((100vw - 992px) / (1200 - 992)));
+    // font-size: 14px;
+    font-size: calc(14px + (16 - 14) * ((100vw - 992px) / (1200 - 992)));
   }
 
   body {
@@ -81,10 +84,13 @@
   }
 
   .container-fluid {
-		height: 60vh;
     margin: 0;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .content-top-buffer {
+    margin-top: 250px;
   }
 
   .navbar-custom {
@@ -98,8 +104,8 @@
 
 @media (min-width: @screen-lg-min) {
   html {
-		font-size: 16px;
-		// font-size: calc(16px + (14 - 12) * ((100vw - @screen-lg-min) / (@screen-lg-max - @screen-lg-min)));
+    font-size: 16px;
+    // font-size: calc(16px + (14 - 12) * ((100vw - @screen-lg-min) / (@screen-lg-max - @screen-lg-min)));
   }
 
   body {
@@ -118,9 +124,12 @@
   }
 
   .container-fluid {
-		height: 60vh;
     margin: 0;
     padding-left: 170px;
     padding-right: 80px;
+  }
+
+  .content-top-buffer {
+    margin-top: 250px;
   }
 }
