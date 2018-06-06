@@ -146,7 +146,8 @@
 										<div class="col-xs-12">
 											<div class="form-group">
 												<label style="font-size: 1.75rem; font-weight: 400;" for="price">Price of Property</label>
-												<input class="form-control left-buffer-xs" value="0" class="priceinput" name="property_price" id="price" onkeyup="payment(this.form);" type="text" placeholder="$20000">
+												<input class="form-control left-buffer-xs" value="0" class="priceinput" name="property_price" id="price" onkeyup="payment(this.form);"
+												type="text" placeholder="$20000">
 											</div>
 										</div>
 									</div>
@@ -166,19 +167,21 @@
 									<div class="big-label">Choose what best describe this transaction</div>
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
-											<div class="form-check">
-												<input class="checkbox form-check-input" id="firstTime" name="first_time_buyer" value="ON" onclick="payment(this.form);"
-												type="checkbox">
-												<label class="form-check-label" for="firstTime">
-													First time buyer
-												</label>
-											</div>
-											<div class="form-check">
-												<input class="checkbox form-check-input" id="coPurchase" name="first_time_co_purchaser" value="ON" onclick="form.experienced_co_purchaser.checked = false; payment(this.form);"
-												type="checkbox">
-												<label class="form-check-label" for="coPurchase">
-													My Co-Purchaser is a First Time Home Buyer
-												</label>
+											<div class="row">
+												<div class="form-check col-md-4 col-xs-12">
+													<input class="checkbox form-check-input" id="firstTime" name="first_time_buyer" value="ON" onclick="payment(this.form);"
+													type="checkbox">
+													<label class="form-check-label" for="firstTime">
+														First time buyer
+													</label>
+												</div>
+												<div class="form-check col-md-8 col-xs-12">
+													<input class="checkbox form-check-input" id="coPurchase" name="first_time_co_purchaser" value="ON" onclick="form.experienced_co_purchaser.checked = false; payment(this.form);"
+													type="checkbox">
+													<label class="form-check-label" for="coPurchase">
+														My Co-Purchaser is a First Time Home Buyer
+													</label>
+												</div>
 											</div>
 											<div class="form-check">
 												<input class="checkbox form-check-input" id="coPurchase2" name="experienced_co_purchaser" value="ON" onclick="form.first_time_co_purchaser.checked = false; payment(this.form);"
@@ -293,6 +296,3 @@
 </body>
 
 </html>
-
-
-
