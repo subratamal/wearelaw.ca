@@ -4,13 +4,13 @@
 var VER = " QuoteCalc V5.2 GitHub ";
 
 function hideDiv(id) {
-	if (document.getElementById) { // DOM3 = IE5, NS6
+	if (document.getElementById && document.getElementById(id)) { // DOM3 = IE5, NS6
 		document.getElementById(id).style.display = 'none';
 	}
 } // end function
 
 function showDiv(id) {
-	if (document.getElementById) { // DOM3 = IE5, NS6
+	if (document.getElementById && document.getElementById(id)) { // DOM3 = IE5, NS6
 		document.getElementById(id).style.display = 'block';
 	}
 } // end function
