@@ -9,6 +9,10 @@ function hideDiv(id) {
 	}
 } // end function
 
+function skipBlock(fromElem, targetIndex) {
+	fromElem.querySelector('input[value="Next"]').setAttribute("data-slide-to", targetIndex);
+} // end function
+
 function showDiv(id) {
 	if (document.getElementById && document.getElementById(id)) { // DOM3 = IE5, NS6
 		document.getElementById(id).style.display = 'block';
@@ -206,8 +210,9 @@ function set_fees(form,transaction) {
 	switch(transaction) {
 		case 1:
 			// purchase
-			showDiv('ValueRow');
-			showDiv('Rebates');
+			// showDiv('ValueRow');
+			// showDiv('Rebates');
+			skipBlock(document.querySelector("#ValueRow"), 3);
 
 			if (P == '') P = 0;
 			BaseFee = 1865;
@@ -275,8 +280,9 @@ function set_fees(form,transaction) {
 
 	case 2:
 	// sell
-		showDiv('ValueRow');
-		hideDiv('Rebates');
+		// showDiv('ValueRow');
+		// hideDiv('Rebates');
+		skipBlock(document.querySelector("#ValueRow"), 4);
 		hideDiv('TLAFINF');
 
 		BaseFee = 1187;
@@ -308,7 +314,7 @@ function set_fees(form,transaction) {
 
 	case 3:
 		// refinance
-		showDiv('ValueRow');
+		// showDiv('ValueRow');
 		hideDiv('TLAFINF');
 
 		//  Fees = 1132.08+67.92;
@@ -333,7 +339,8 @@ function set_fees(form,transaction) {
 		TCC = Fees + PROV_Tax;
 
 		// hideDiv('ValueRow');
-		hideDiv('Rebates');
+		// hideDiv('Rebates');
+		skipBlock(document.querySelector("#ValueRow"), 4);
 
 		TotalFees = PROV_Tax + Fees;
 		// LegalFees.innerHTML = "$" + addCommas(PreTaxFees) + " = $" + addCommas(Fees) + " + 13% HST";
@@ -364,8 +371,9 @@ function clearForm(form){
 	form.NewBuyer2.checked = false;
 	form.OldBuyer2.checked = false;
 
-	showDiv('ValueRow');
- 	showDiv('Rebates');
+	// showDiv('ValueRow');
+ 	// showDiv('Rebates');
+ 	skipBlock(document.querySelector("#ValueRow"), 3);
 
 	LTT = document.getElementById('landTax');
 	TLTT = document.getElementById('TorontolandTax');
