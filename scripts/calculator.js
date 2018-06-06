@@ -173,15 +173,15 @@ function set_fees(form,transaction) {
 	ScndBuyer = document.getElementById('NewBuyer2');
 	OldBuyer = document.getElementById('OldBuyer2');
 
-	if (document.calc_form.NewBuyer.checked == true)	BuyerStat = 1; else BuyerStat = 0;
-	if (document.calc_form.NewBuyer2.checked == true)	Buyer2Stat = 1; else Buyer2Stat = 0;
-	if (document.calc_form.OldBuyer2.checked == true)	OldBuyerStat = 1; else OldBuyerStat = 0;
+	if (document.calc_form.first_time_buyer.checked == true)	BuyerStat = 1; else BuyerStat = 0;
+	if (document.calc_form.first_time_co_purchaser.checked == true)	Buyer2Stat = 1; else Buyer2Stat = 0;
+	if (document.calc_form.experienced_co_purchaser.checked == true)	OldBuyerStat = 1; else OldBuyerStat = 0;
 
-	P=form.price.value;
+	P=form.property_price.value;
 	var objRegExp = /[$$,]/g;
 	P = eval(P.replace(objRegExp,''));
 
-	if (form.price.value.length == 0) P = "0";
+	if (form.property_price.value.length == 0) P = "0";
 
 	// after July 1st -- calculate HST
 	PROV_rate = "13% HST";
@@ -189,7 +189,7 @@ function set_fees(form,transaction) {
 	//alert (PROV_rate);
 
 	for (ic=0;ic<2;ic++) {
-		if (form.R3[ic].checked) gta_located=ic+1;
+		if (form.location[ic].checked) gta_located=ic+1;
 	}
 
 	switch(gta_located){
@@ -204,7 +204,7 @@ function set_fees(form,transaction) {
 	} // end switch
 
 	 for (ic=0;ic<3;ic++) {
-		if (form.R1[ic].checked) transaction=ic+1;
+		if (form.transaction_type[ic].checked) transaction=ic+1;
  	}
 
 	switch(transaction) {
@@ -361,15 +361,15 @@ function payment(form)   {
 // CLEAR ALL INPUT FIELDS
 function clearForm(form){
 
-	form.price.value="";
+	form.property_price.value="";
 
-	form.R1[0].checked = true;
+	form.transaction_type[0].checked = true;
 	//form.R2[0].checked = true;
-	form.R3[0].checked = true;
+	form.location[0].checked = true;
 
-	form.NewBuyer.checked = false;
-	form.NewBuyer2.checked = false;
-	form.OldBuyer2.checked = false;
+	form.first_time_buyer.checked = false;
+	form.first_time_co_purchaser.checked = false;
+	form.experienced_co_purchaser.checked = false;
 
 	// showDiv('ValueRow');
  	// showDiv('Rebates');

@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="row">
-				<form id="calculatorForm" name="calc_form" class="">
+				<form id="calculatorForm" name="calc_form" class="" enctype="application/json">
 					<div class="panel-body">
 						<div id="carousel-div" class="carousel slide" data-ride="carousel" data-interval="false">
 							<div class="carousel-inner" role="listbox">
@@ -80,13 +80,13 @@
 
 									<div class="row top-buffer-sm">
 										<div class="form-radio col-xs-12 col-md-6">
-											<input id="gta" class="form-radio-input" name="R3" value="L1" onclick="payment(this.form);" type="radio" checked>
+											<input id="gta" class="form-radio-input" name="location" value="Toronto" onclick="payment(this.form);" type="radio" checked>
 											<label class="form-radio-label" for="gta">
 												In Toronto
 											</label>
 										</div>
 										<div class="form-radio col-xs-12 col-md-6">
-											<input id="ont" class="form-radio-input" value="L2" name="R3" onclick="payment(this.form);" type="radio">
+											<input id="ont" class="form-radio-input" name="location" value="Outside Toronto" onclick="payment(this.form);" type="radio">
 											<label class="form-radio-label" for="ont">
 												Outside Toronto
 											</label>
@@ -106,20 +106,21 @@
 
 									<div class="row top-buffer-sm">
 										<div class="form-radio col-xs-12 col-md-3">
-											<input id="purchase" class="form-radio-input" value="V1" name="R1" onclick="set_fees(this.form,'1');payment(this.form);"
+											<input id="purchase" class="form-radio-input" value="Purchase" name="transaction_type" onclick="set_fees(this.form,'1');payment(this.form);"
 											checked="checked" type="radio">
 											<label class="form-radio-label" for="purchase">
 												Purchase
 											</label>
 										</div>
 										<div class="form-radio col-xs-12 col-md-3">
-											<input id="sell" class="form-radio-input" value="V2" name="R1" onclick="set_fees(this.form,'2');payment(this.form);" type="radio">
+											<input id="sell" class="form-radio-input" value="Sale" name="transaction_type" onclick="set_fees(this.form,'2');payment(this.form);"
+											type="radio">
 											<label class="form-radio-label" for="sell">
 												Sale
 											</label>
 										</div>
 										<div class="form-radio col-xs-12 col-md-6">
-											<input id="mortgageRefinance" class="form-radio-input" value="V3" name="R1" onclick="set_fees(this.form,'3');payment(this.form);"
+											<input id="mortgageRefinance" class="form-radio-input" value="Mortage Refinance" name="transaction_type" onclick="set_fees(this.form,'3');payment(this.form);"
 											type="radio">
 											<label class="form-radio-label" for="mortgageRefinance">
 												Mortage Refinance
@@ -144,9 +145,8 @@
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
 											<div class="form-group">
-												<label for="price">Price of Property</label>
-												<input class="form-control left-buffer-xs" value="0" class="priceinput" name="price" id="price" onkeyup="payment(this.form);"
-												type="text" placeholder="$20000">
+												<label style="font-size: 1.75rem; font-weight: 400;" for="price">Price of Property</label>
+												<input class="form-control left-buffer-xs" value="0" class="priceinput" name="property_price" id="price" onkeyup="payment(this.form);" type="text" placeholder="$20000">
 											</div>
 										</div>
 									</div>
@@ -161,26 +161,27 @@
 									</div>
 								</div>
 
-								<!-- Part 4 -->
+								<!-- Part 4 (Rebets) -->
 								<div class="item col-xs-12 col-md-9" id="Rebates">
 									<div class="big-label">Choose what best describe this transaction</div>
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
 											<div class="form-check">
-												<input class="checkbox form-check-input" id="firstTime" name="NewBuyer" value="ON" onclick="payment(this.form);" type="checkbox">
+												<input class="checkbox form-check-input" id="firstTime" name="first_time_buyer" value="ON" onclick="payment(this.form);"
+												type="checkbox">
 												<label class="form-check-label" for="firstTime">
 													First time buyer
 												</label>
 											</div>
 											<div class="form-check">
-												<input class="checkbox form-check-input" id="coPurchase" name="NewBuyer2" value="ON" onclick="form.OldBuyer2.checked = false; payment(this.form);"
+												<input class="checkbox form-check-input" id="coPurchase" name="first_time_co_purchaser" value="ON" onclick="form.experienced_co_purchaser.checked = false; payment(this.form);"
 												type="checkbox">
 												<label class="form-check-label" for="coPurchase">
 													My Co-Purchaser is a First Time Home Buyer
 												</label>
 											</div>
 											<div class="form-check">
-												<input class="checkbox form-check-input" id="coPurchase2" name="OldBuyer2" value="ON" onclick="form.NewBuyer2.checked = false; payment(this.form);"
+												<input class="checkbox form-check-input" id="coPurchase2" name="experienced_co_purchaser" value="ON" onclick="form.first_time_co_purchaser.checked = false; payment(this.form);"
 												type="checkbox">
 												<label class="form-check-label" for="coPurchase2">
 													My Co-Purchaser previously owned a home (anywhere)
@@ -234,59 +235,64 @@
 											</div>
 										</div>
 									</div>
+								</div>
 
-									<!-- Part 6 -->
-									<div class="item col-xs-12 col-md-6">
-										<div class="big-label">Final Closing Cost</div>
-										<span class="calcinput hddn" id="totalClosingCost">$2,107.00</span>
-										<span id="ClosingCostCalcs">&nbsp;</span>
+								<!-- Part 6 -->
+								<div class="item col-xs-12 col-md-6">
+									<div class="big-label">Final Closing Cost</div>
+									<font class="calcinput hddn" id="totalClosingCost">$2,107.00</font>
+									<span id="ClosingCostCalcs">&nbsp;</span>
 
-										<div class="l-big-label">Get the total closing costs sent to your email:</div>
+									<div class="l-big-label">Get the total closing costs sent to your email:</div>
 
-										<div class="row top-buffer-sm">
-											<div class="col-xs-12">
-												<div class="form-group">
-													<label for="name">First Name</label>
-													<input type="text" class="form-control" id="name" placeholder="Adam">
-												</div>
-												<div class="form-group">
-													<label for="price">Email</label>
-													<input type="email" class="form-control" id="email" placeholder="adam@gmail.com">
-												</div>
+									<div class="row top-buffer-sm">
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label for="name">First Name</label>
+												<input type="text" class="form-control" id="name" name="customer_name" placeholder="Adam">
 											</div>
-										</div>
-
-										<div class="row top-buffer-sm">
-											<div class="col-xs-12">
-												<input type="button" data-target="#carousel-div" data-slide-to="0" class="clearButton btn btn-primary btn-lg pull-left" value="Restart" onclick="clearForm(this.form); return false;"
-												/>
-												<input type="button" data-target="#carousel-div" data-slide-to="6" class="btn btn-primary btn-lg pull-right" value="Finish"
-												/>
+											<div class="form-group">
+												<label for="price">Email</label>
+												<input type="email" class="form-control" id="email" name="customer_email" placeholder="adam@gmail.com">
 											</div>
 										</div>
 									</div>
 
-									<!-- part 7 -->
-									<div class="item col-xs-12 col-md-6">
-										<div class="big-label">Thank you!</div>
-
-										<div class="l-big-label">You will receive an email shortly containing the total.</div>
-
-										<a data-target="#carousel-div" data-slide-to="0" class="btn btn-primary btn-lg pull-right">Start Again</a>
+									<div class="row top-buffer-sm">
+										<div class="col-xs-12">
+											<input type="button" data-target="#carousel-div" data-slide-to="0" class="clearButton btn btn-primary btn-lg pull-left" value="Restart"
+											onclick="clearForm(this.form); return false;" />
+											<input type="submit" data-target="#carousel-div" data-slide-to="6" class="btn btn-primary btn-lg pull-right" value="Finish"
+											/>
+										</div>
 									</div>
+								</div>
+
+								<!-- part 7 -->
+								<div class="item col-xs-12 col-md-6">
+									<div class="big-label">Thank you!</div>
+
+									<div class="l-big-label">You will receive an email shortly containing the total.</div>
+
+									<a data-target="#carousel-div" data-slide-to="0" class="btn btn-primary btn-lg pull-right">Start Again</a>
 								</div>
 							</div>
 						</div>
+					</div>
 				</form>
-				</div>
 			</div>
 		</div>
+	</div>
 
-		<!-- Script loading starts -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="./scripts/calculator.js"></script>
-		<!-- Script loading ends -->
+	<!-- Script loading starts -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./scripts/calculator.js"></script>
+	<script src="./scripts/index.js"></script>
+	<!-- Script loading ends -->
 </body>
 
 </html>
+
+
+
