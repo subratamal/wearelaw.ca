@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<!-- Styles loading starts -->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles/main.css">
 	<!-- Styles loading ends -->
 
@@ -75,7 +75,7 @@
 							<div class="carousel-inner" role="listbox">
 
 								<!--- Part 1-->
-								<div class="item active col-xs-12 col-md-8 col-lg-6">
+								<div class="item col-xs-12 col-md-8 col-lg-6">
 									<div class="big-label top-buffer-sm">Where is the Property Located?</div>
 
 									<div class="row top-buffer-sm">
@@ -238,7 +238,7 @@
 								</div>
 
 								<!-- Part 6 -->
-								<div class="item col-xs-12 col-md-6">
+								<div id="final-cost-calc" class="active item col-xs-12 col-md-6">
 									<div class="big-label">Final Closing Cost</div>
 									<font id="totalClosingCost" class="calcinput hddn">$2,107.00</font>
 									<span id="ClosingCostCalcs" class="hddn">&nbsp;</span>
@@ -247,16 +247,20 @@
 
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
-											<div class="row form-group">
+											<div class="row form-group has-feedback has-error no-bottom-buffer">
 												<label for="name" class="form-group-label col-xs-5 no-right-gutter">First Name</label>
 												<div class="col-xs-7">
-													<input type="text" class="form-control form-group-input" id="name" name="customer_name" placeholder="Adam">
+													<input id="name" class="form-control form-group-input" type="text" name="customer_name" placeholder="Adam" required>
+													<!-- <div class="help-block with-errors"></div> -->
+													<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 												</div>
 											</div>
-											<div class="row form-group">
-												<label for="email" class="form-group-label col-xs-5 no-right-gutter">Email</label>
+											<div class="row top-buffer-xs form-group has-feedback has-error no-bottom-buffer">
+												<label for="email" class="form-group-label col-xs-5 no-right-gutter ">Email</label>
 												<div class="col-xs-7">
-													<input type="email" class="form-control form-group-input" id="email" name="customer_email" placeholder="adam@gmail.com">
+													<input id="email" class="form-control form-group-input" type="email" name="customer_email" placeholder="adam@gmail.com" data-error="Bruh, that email address is invalid" required>
+													<!-- <div class="help-block with-errors"></div> -->
+													<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 												</div>
 											</div>
 										</div>
@@ -264,10 +268,11 @@
 
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
-											<input type="button" data-target="#carousel-div" data-slide-to="0" class="clearButton btn btn-primary btn-lg pull-left" value="Restart"
+											<input type="button" data-target="#carousel-div" data-slide-to="0" class="clearButton btn btn-lg btn-back pull-left" value="Restart"
 											onclick="clearForm(this.form); return false;" />
 											<input type="submit" data-target="#carousel-div" data-slide-to="6" class="btn btn-primary btn-lg pull-right" value="Finish"
 											/>
+											<!-- <button type="button" data-target="#carousel-div" data-slide-to="6" class="btn btn-primary btn-lg pull-right" value="Finish">Finish</button> -->
 										</div>
 									</div>
 								</div>
@@ -291,6 +296,8 @@
 	<!-- Script loading starts -->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script> -->
+	<script src="./scripts/validator.js"></script>
 	<script src="./scripts/calculator.js"></script>
 	<script src="./scripts/index.js"></script>
 	<!-- Script loading ends -->

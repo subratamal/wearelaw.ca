@@ -86,8 +86,20 @@ $(function () {
 		return data;
 	}
 
+	function blockNavigation(element) {
+		const elem = $(element).closest('.item').find('input[type="submit"]');
+		elem && elem[0].setAttribute('data-slide-to', 5);
+	}
+
+	function unBlockNavigation(element) {
+		const elem = $(element).closest('.item').find('input[type="submit"]');
+		elem && elem[0].setAttribute('data-slide-to', 6);
+	}
+
 	const $form = $('#calculatorForm');
 	const $priceInput = $form.find("#price");
+	const $carousel = $('.carousel');
+
 	$priceInput.on("keyup", function (event) {
 		// When user select text in the document, also abort.
 		var selection = window.getSelection().toString();
@@ -113,8 +125,16 @@ $(function () {
 		});
 	});
 
-	$form.on('click', 'input[type="submit"]', (evt) => {
-		evt.preventDefault();
+	$form.validator()
+	.on('click', 'input[type="submit"]', (evt) => {
+		if (evt.isDefaultPrevented()) {
+			// handle the invalid form...
+			blockNavigation($(evt.target));
+			$carousel.carousel(5);
+			return;
+		}
+
+		unBlockNavigation($(evt.target));
 
 		const formData = $form.serializeArray();
 
