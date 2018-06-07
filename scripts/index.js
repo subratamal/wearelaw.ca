@@ -126,51 +126,65 @@ $(function () {
 	});
 
 	$form.validator()
-	.on('click', 'input[type="submit"]', (evt) => {
-		if (evt.isDefaultPrevented()) {
-			// handle the invalid form...
-			blockNavigation($(evt.target));
-			$carousel.carousel(5);
-			return;
-		}
-
-		unBlockNavigation($(evt.target));
-
-		const formData = $form.serializeArray();
-
-		// Sanitize data
-		for (var i = 0; i < formData.length; i++) {
-			if (formData[i].name == 'property_price') {
-				formData[i].value = formData[i].value.replace(/,/g, ''); // Sanitize the values.
+		.on('click', 'input[type="submit"]', (evt) => {
+			if (evt.isDefaultPrevented()) {
+				// handle the invalid form...
+				blockNavigation($(evt.target));
+				$carousel.carousel(5);
+				return;
 			}
-		};
-		console.log(formData);
 
-		var gSheetUrl = 'https://script.google.com/macros/s/AKfycbyZ4OMLeAPFnjkHjLJef4gorUDUxOa7_JIWSo9U-8z-0ClxY6pb/exec';
+			unBlockNavigation($(evt.target));
 
-		function insertValue(formData) {
-			var locationObj = formData.find(elem => elem.name == 'location') || {};
-			var transactionTypeObj = formData.find(elem => elem.name == 'transaction_type') || {};
-			var propertyPrice = formData.find(elem => elem.name == 'property_price') || {};
-			var firstTimeBuyer = formData.find(elem => elem.name == 'first_time_buyer') || {};
-			var firstTimeCoPurchaser = formData.find(elem => elem.name == 'first_time_co_purchaser') || {};
-			var customerName = formData.find(elem => elem.name == 'customer_name') || {};
-			var customerEmail = formData.find(elem => elem.name == 'customer_email') || {};
+			const formData = $form.serializeArray();
 
-			var url = gSheetUrl + `?callback=callback&action=insert&location=${locationObj.value}&transaction_type=${transactionTypeObj.value}&property_price=${propertyPrice.value}&first_time_buyer=${firstTimeBuyer.value}&first_time_co_purchaser=${firstTimeCoPurchaser.value}&customer_name=${customerName.value}&customer_email=${customerEmail.value}`;
+			// Sanitize data
+			for (var i = 0; i < formData.length; i++) {
+				if (formData[i].name == 'property_price') {
+					formData[i].value = formData[i].value.replace(/,/g, ''); // Sanitize the values.
+				}
+			};
+			console.log(formData);
 
-			var request = jQuery.ajax({
-				crossDomain: true,
-				url: url,
-				method: "GET",
-				dataType: "jsonp"
-			});
-		}
+			var gSheetUrl = 'https://script.google.com/macros/s/AKfycbyZ4OMLeAPFnjkHjLJef4gorUDUxOa7_JIWSo9U-8z-0ClxY6pb/exec';
 
-		function callback(data) {
-			console.log(data);
-		}
+			function insertValue(formData) {
+				var locationObj = formData.find(elem => elem.name == 'location') || {};
+				var transactionTypeObj = formData.find(elem => elem.name == 'transaction_type') || {};
+				var propertyPrice = formData.find(elem => elem.name == 'property_price') || {};
+				var firstTimeBuyer = formData.find(elem => elem.name == 'first_time_buyer') || {};
+				var firstTimeCoPurchaser = formData.find(elem => elem.name == 'first_time_co_purchaser') || {};
+				var customerName = formData.find(elem => elem.name == 'customer_name') || {};
+				var customerEmail = formData.find(elem => elem.name == 'customer_email') || {};
 
-		insertValue(formData);
-	});
+				var url = gSheetUrl + `?callback=callback&action=insert&location=${locationObj.value}&transaction_type=${transactionTypeObj.value}&property_price=${propertyPrice.value}&first_time_buyer=${firstTimeBuyer.value}&first_time_co_purchaser=${firstTimeCoPurchaser.value}&customer_name=${customerName.value}&customer_email=${customerEmail.value}`;
+
+				var request = jQuery.ajax({
+					crossDomain: true,
+					url: url,
+					method: "GET",
+					dataType: "jsonp"
+				});
+			}
+
+			function callback(data) {
+				console.log(data);
+			}
+
+			insertValue(formData);
+		});
+
+	$('#navbarCollapse')
+		.on('shown.bs.collapse', function () {
+			$('#navbar-hamburger').addClass('hidden');
+			$('#navbar-close').removeClass('hidden').addClass('remove-btn');
+
+			$("#navbarCollapse").addClass('navbar-collapse-mobile');
+		})
+		.on('hidden.bs.collapse', function () {
+			$('#navbar-hamburger').removeClass('hidden');
+			$('#navbar-close').addClass('hidden').removeClass('remove-btn');
+
+			$("#navbarCollapse").removeClass('navbar-collapse-mobile');
+		});
 });

@@ -88,8 +88,8 @@ body {
         }
 
         .form-control-feedback {
-					right: 15px;
-					top:0;
+          right: 15px;
+          top: 0;
         }
 
         @color1: #f4f4f4;
@@ -181,7 +181,7 @@ body {
             border-radius: 0px;
             display: inline-block;
             // width: 50%;
-					}
+          }
         }
       }
     }
@@ -262,6 +262,27 @@ body {
       margin-top: 0px;
     }
   }
+
+  .navbar-collapse-mobile {
+    background-color: #000 !important;
+    z-index: 999;
+    position: absolute;
+    padding: 50px 0 10px 20px;
+		top: 0;
+		width: 100%;
+
+		li {
+			display: block !important;
+		}
+  }
+
+  .remove-btn {
+    font-size: 20px;
+    color: white;
+    z-index: 1000;
+		margin-top: -15px;
+		position: relative;
+  }
 }
 
 /* stroke */
@@ -307,7 +328,6 @@ nav.stroke ul li {
   }
 }
 
-
 // Helpers
 
 /* no-gutters Class Rules */
@@ -340,6 +360,9 @@ row.no-gutters [class*=" col-"] {
   padding-right: 0;
 }
 
+.right-padding-15 {
+	padding-right: 15px !important;
+}
 
 .top-buffer-xs {
   margin-top: 5px;
@@ -370,5 +393,5 @@ row.no-gutters [class*=" col-"] {
 }
 
 .hddn {
-	display: none;
+  display: none;
 }
