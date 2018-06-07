@@ -132,8 +132,7 @@
 										<div class="col-xs-12">
 											<input type="button" data-target="#carousel-div" data-slide-to="2" class="btn btn-primary btn-lg pull-left" value="Next"
 											/>
-											<input type="button" data-target="#carousel-div" data-slide-to="0" class="btn btn-lg btn-back pull-right" value="Back"
-											/>
+											<input type="button" data-target="#carousel-div" data-slide-to="0" class="btn btn-lg btn-back pull-right" value="Back" />
 										</div>
 									</div>
 								</div>
@@ -144,10 +143,13 @@
 
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
-											<div class="form-group">
-												<label style="font-size: 1.75rem; font-weight: 400;" for="price">Price of Property</label>
-												<input class="form-control left-buffer-xs" value="0" class="priceinput" name="property_price" id="price" onkeyup="payment(this.form);"
-												type="text" placeholder="$20000">
+											<div class="row form-group">
+												<label class="form-group-label col-xs-6 col-md-4 no-right-gutter" for="price">Price of Property</label>
+												<div class="col-xs-6 col-md-6 input-group">
+													<span class="input-group-addon">$</span>
+													<input class="form-control currency priceinput form-group-input" value="" name="property_price" id="price" onkeyup="payment(this.form);"
+													type="text" placeholder="$20000">
+												</div>
 											</div>
 										</div>
 									</div>
@@ -156,8 +158,7 @@
 										<div class="col-xs-12">
 											<input type="button" data-target="#carousel-div" data-slide-to="3" class="btn btn-primary btn-lg pull-left" value="Next"
 											/>
-											<input type="button" data-target="#carousel-div" data-slide-to="1" class="btn btn-lg btn-back pull-right" value="Back"
-											/>
+											<input type="button" data-target="#carousel-div" data-slide-to="1" class="btn btn-lg btn-back pull-right" value="Back" />
 										</div>
 									</div>
 								</div>
@@ -197,8 +198,7 @@
 										<div class="col-xs-12">
 											<input type="button" data-target="#carousel-div" data-slide-to="4" class="btn btn-primary btn-lg pull-left" value="Next"
 											/>
-											<input type="button" data-target="#carousel-div" data-slide-to="2" class="btn btn-lg btn-back pull-right" value="Back"
-											/>
+											<input type="button" data-target="#carousel-div" data-slide-to="2" class="btn btn-lg btn-back pull-right" value="Back" />
 										</div>
 									</div>
 								</div>
@@ -233,8 +233,7 @@
 											<div class="col-xs-12">
 												<input type="button" data-target="#carousel-div" data-slide-to="5" class="btn btn-primary btn-lg pull-left" value="Next"
 												/>
-												<input type="button" data-target="#carousel-div" data-slide-to="3" class="btn btn-lg btn-back pull-right" value="Back"
-												/>
+												<input type="button" data-target="#carousel-div" data-slide-to="3" class="btn btn-lg btn-back pull-right" value="Back" />
 											</div>
 										</div>
 									</div>
@@ -250,13 +249,17 @@
 
 									<div class="row top-buffer-sm">
 										<div class="col-xs-12">
-											<div class="form-group">
-												<label for="name">First Name</label>
-												<input type="text" class="form-control" id="name" name="customer_name" placeholder="Adam">
+											<div class="row form-group">
+												<label for="name" class="form-group-label col-xs-5 no-right-gutter">First Name</label>
+												<div class="col-xs-7">
+													<input type="text" class="form-control form-group-input" id="name" name="customer_name" placeholder="Adam">
+												</div>
 											</div>
-											<div class="form-group">
-												<label for="price">Email</label>
-												<input type="email" class="form-control" id="email" name="customer_email" placeholder="adam@gmail.com">
+											<div class="row form-group">
+												<label for="email" class="form-group-label col-xs-5 no-right-gutter">Email</label>
+												<div class="col-xs-7">
+													<input type="email" class="form-control form-group-input" id="email" name="customer_email" placeholder="adam@gmail.com">
+												</div>
 											</div>
 										</div>
 									</div>

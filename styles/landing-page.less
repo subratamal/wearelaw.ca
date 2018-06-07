@@ -48,6 +48,15 @@ body {
   padding-left: 0;
 }
 
+.row.no-right-gutters > [class^="col-"],
+.row.no-right-gutters > [class*=" col-"] {
+	padding-right: 0;
+}
+
+.no-right-gutter {
+	padding-right: 0;
+}
+
 .top-buffer-sm {
   margin-top: 20px;
 }
@@ -119,10 +128,6 @@ body {
         }
 
         .form-control {
-          border-radius: 0px;
-          border-color: gray;
-          display: inline-block;
-          width: 50%;
         }
 
         @color1: #f4f4f4;
@@ -199,6 +204,20 @@ body {
               font-size: 1.75rem;
               font-weight: 400;
             }
+          }
+        }
+
+        .form-group {
+          .form-group-label {
+            font-size: 1.75rem;
+            font-weight: 400;
+          }
+          .form-group-input {
+            font-size: 1.5rem;
+            border-radius: 0px;
+            border-color: gray;
+            display: inline-block;
+            // width: 50%;
           }
         }
       }

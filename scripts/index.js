@@ -86,11 +86,44 @@ $(function () {
 		return data;
 	}
 
-	const form = $('#calculatorForm');
-	form.on('click', 'input[type="submit"]', (evt) => {
+	const $form = $('#calculatorForm');
+	const $priceInput = $form.find("#price");
+	$priceInput.on("keyup", function (event) {
+		// When user select text in the document, also abort.
+		var selection = window.getSelection().toString();
+		if (selection !== '') {
+			return;
+		}
+
+		// When the arrow keys are pressed, abort.
+		if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+			return;
+		}
+
+		var $this = $(this);
+
+		// Get the value.
+		var input = $this.val();
+
+		var input = input.replace(/[\D\s\._\-]+/g, "");
+		input = input ? parseInt(input, 10) : 0;
+
+		$this.val(function () {
+			return (input === 0) ? "" : input.toLocaleString("en-US");
+		});
+	});
+
+	$form.on('click', 'input[type="submit"]', (evt) => {
 		evt.preventDefault();
 
-		const formData = form.serializeArray();
+		const formData = $form.serializeArray();
+
+		// Sanitize data
+		for (var i = 0; i < formData.length; i++) {
+			if (formData[i].name == 'property_price') {
+				formData[i].value = formData[i].value.replace(/,/g, ''); // Sanitize the values.
+			}
+		};
 		console.log(formData);
 
 		var gSheetUrl = 'https://script.google.com/macros/s/AKfycbyZ4OMLeAPFnjkHjLJef4gorUDUxOa7_JIWSo9U-8z-0ClxY6pb/exec';
