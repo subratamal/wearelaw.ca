@@ -37,46 +37,6 @@ body {
   }
 }
 
-/* no-gutters Class Rules */
-.row.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-.row.no-gutters > [class^="col-"],
-.row.no-gutters > [class*=" col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.row.no-right-gutters > [class^="col-"],
-.row.no-right-gutters > [class*=" col-"] {
-	padding-right: 0;
-}
-
-.no-right-gutter {
-	padding-right: 0;
-}
-
-.top-buffer-sm {
-  margin-top: 20px;
-}
-
-.top-buffer-md {
-  margin-top: 40px;
-}
-
-.content-top-buffer {
-  margin-top: 200px;
-}
-
-.bottom-buffer-sm {
-  margin-bottom: 20px;
-}
-
-.left-buffer-xs {
-  margin-left: 5px;
-}
-
 .form-wrap {
   margin-bottom: 30px;
 
@@ -199,6 +159,8 @@ body {
           input[type="checkbox"] {
             display: inline;
             margin-right: 15px;
+            width: 25px;
+            height: 25px;
 
             + .form-check-label {
               font-size: 1.75rem;
@@ -215,7 +177,6 @@ body {
           .form-group-input {
             font-size: 1.5rem;
             border-radius: 0px;
-            border-color: gray;
             display: inline-block;
             // width: 50%;
           }
@@ -342,4 +303,61 @@ nav.stroke ul li {
   a:hover {
     color: darken(#fff, 15%);
   }
+}
+
+
+// Helpers
+
+/* no-gutters Class Rules */
+row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+row.no-gutters [class^="col-"],
+row.no-gutters [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.no-gutters-unsafe {
+  margin-right: 0;
+  margin-left: 0;
+}
+.no-gutters-unsafe [class^="col-"],
+.no-gutters-unsafe [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.no-right-gutters > [class^="col-"],
+.no-right-gutters > [class*=" col-"] {
+  padding-right: 0;
+}
+
+.no-right-gutter {
+  padding-right: 0;
+}
+
+.top-buffer-sm {
+  margin-top: 20px;
+}
+
+.top-buffer-md {
+  margin-top: 40px;
+}
+
+.content-top-buffer {
+  margin-top: 200px;
+}
+
+.bottom-buffer-sm {
+  margin-bottom: 20px;
+}
+
+.left-buffer-xs {
+  margin-left: 5px;
+}
+
+.hddn {
+	display: none;
 }
