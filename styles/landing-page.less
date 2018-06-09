@@ -1,12 +1,13 @@
 // Landing page styles
 
 body {
-  height: 95vh;
+  height: 100vh;
   width: 100vw;
   // display: flex;
   // flex-flow: column nowrap;
   justify-content: space-between;
   background-image: url("./../images/we-are-law-2000x.jpg");
+  transition: background-image 0.5s ease-in-out;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -268,20 +269,20 @@ body {
     z-index: 999;
     position: absolute;
     padding: 50px 0 10px 20px;
-		top: 0;
-		width: 100%;
+    top: 0;
+    width: 100%;
 
-		li {
-			display: block !important;
-		}
+    li {
+      display: block !important;
+    }
   }
 
   .remove-btn {
     font-size: 20px;
     color: white;
     z-index: 1000;
-		margin-top: -15px;
-		position: relative;
+    margin-top: -15px;
+    position: relative;
   }
 }
 
@@ -361,7 +362,7 @@ row.no-gutters [class*=" col-"] {
 }
 
 .right-padding-15 {
-	padding-right: 15px !important;
+  padding-right: 15px !important;
 }
 
 .top-buffer-xs {
