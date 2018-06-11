@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+    "less:compile": "npx lessc --clean-css='--s1 --advanced --compatibility=ie8' styles/main.less styles/main.css --source-map",
+    "build": "npm run less:compile"
   },
   "author": "Subrat <06.subrata@gmail.com>",
   "license": "ISC",
