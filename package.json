@@ -8,7 +8,7 @@
     "less:compile": "npx lessc --clean-css='--s1 --advanced --compatibility=ie8' styles/main.less styles/main.css --source-map",
     "build": "npm run less:compile"
   },
-  "author": "Subrat <06.subrata@gmail.com>",
+  "author": "Subrata Mal <06.subrata@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "3.3.7"

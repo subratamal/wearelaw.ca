@@ -173,6 +173,7 @@ function set_fees(form,transaction) {
 	ScndBuyer = document.getElementById('NewBuyer2');
 	OldBuyer = document.getElementById('OldBuyer2');
 
+	if (document.calc_form.not_first_time_buyer.checked == true) BuyerStat = 0; else BuyerStat = 1;
 	if (document.calc_form.first_time_buyer.checked == true)	BuyerStat = 1; else BuyerStat = 0;
 	if (document.calc_form.first_time_co_purchaser.checked == true)	Buyer2Stat = 1; else Buyer2Stat = 0;
 	if (document.calc_form.experienced_co_purchaser.checked == true)	OldBuyerStat = 1; else OldBuyerStat = 0;
@@ -367,9 +368,12 @@ function clearForm(form){
 	//form.R2[0].checked = true;
 	form.location[0].checked = true;
 
+	form.not_first_time_buyer.checked = false
 	form.first_time_buyer.checked = false;
 	form.first_time_co_purchaser.checked = false;
 	form.experienced_co_purchaser.checked = false;
+	form.customer_name.value = ''
+	form.customer_email.value = ''
 
 	// showDiv('ValueRow');
  	// showDiv('Rebates');

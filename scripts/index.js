@@ -51,13 +51,13 @@ $(function () {
 	}
 
 	function blockNavigation(element) {
-		const elem = $(element).closest('.item').find('input[type="submit"]');
-		elem && elem[0].setAttribute('data-slide-to', 5);
+		const elem = $(element).closest('.item').find('input[type="submit"]')
+		elem && elem[0].setAttribute('data-slide-to', 4)
 	}
 
 	function unBlockNavigation(element) {
 		const elem = $(element).closest('.item').find('input[type="submit"]');
-		elem && elem[0].setAttribute('data-slide-to', 6);
+		elem && elem[0].setAttribute('data-slide-to', 5);
 	}
 
 	const $form = $('#calculatorForm');
@@ -91,14 +91,18 @@ $(function () {
 
 	$form.validator()
 		.on('click', 'input[type="submit"]', (evt) => {
-			if (evt.isDefaultPrevented()) {
-				// handle the invalid form...
-				blockNavigation($(evt.target));
-				$carousel.carousel(5);
-				return;
-			}
+			if (!$(evt.target).hasClass('do-handle-post-data')) {
+				if (evt.isDefaultPrevented()) {
+					// handle the invalid form...
+					blockNavigation($(evt.target))
+					$carousel.carousel(4)
+					return
+				}
 
-			unBlockNavigation($(evt.target));
+				unBlockNavigation($(evt.target));
+
+				return
+			}
 
 			const formData = $form.serializeArray();
 
@@ -116,12 +120,14 @@ $(function () {
 				var locationObj = formData.find(elem => elem.name == 'location') || {};
 				var transactionTypeObj = formData.find(elem => elem.name == 'transaction_type') || {};
 				var propertyPrice = formData.find(elem => elem.name == 'property_price') || {};
+				var notFirstTimeBuyer = formData.find(elem => elem.name == 'not_first_time_buyer') || {};
 				var firstTimeBuyer = formData.find(elem => elem.name == 'first_time_buyer') || {};
 				var firstTimeCoPurchaser = formData.find(elem => elem.name == 'first_time_co_purchaser') || {};
+				var expCoPurchaser = formData.find(elem => elem.name == 'experienced_co_purchaser') || {};
 				var customerName = formData.find(elem => elem.name == 'customer_name') || {};
 				var customerEmail = formData.find(elem => elem.name == 'customer_email') || {};
 
-				var url = gSheetUrl + `?callback=callback&action=insert&location=${locationObj.value}&transaction_type=${transactionTypeObj.value}&property_price=${propertyPrice.value}&first_time_buyer=${firstTimeBuyer.value}&first_time_co_purchaser=${firstTimeCoPurchaser.value}&customer_name=${customerName.value}&customer_email=${customerEmail.value}`;
+				var url = gSheetUrl + `?callback=${callback}&action=insert&location=${locationObj.value}&transaction_type=${transactionTypeObj.value}&property_price=${propertyPrice.value}&not_first_time_buyer=${notFirstTimeBuyer.value}&first_time_buyer=${firstTimeBuyer.value}&first_time_co_purchaser=${firstTimeCoPurchaser.value}&experienced_co_purchaser=${expCoPurchaser.value}&customer_name=${customerName.value}&customer_email=${customerEmail.value}`;
 
 				var request = jQuery.ajax({
 					crossDomain: true,
